@@ -10,7 +10,14 @@
                 <div class="card-body">
                     <div class="row details">
                         <div class="col-md-6">
-                            <p><strong>Name: </strong> <span id="name">{{$user->name}}</span></p>
+                            @if($user->profile_picture)
+                                <img src="{{ asset('storage/' . $user->profile_picture) }}"
+                                alt="Profile Image"
+                                class="img-fluid rounded-circle"
+                                style="width: 50px; height: 50px;"></p>
+                                <a target="__blank" href="{{ asset('storage/' . $user->profile_picture) }}" class=" mb-3 btn btn-sm btn-primary">View Profile Picture</a>
+                            @endif
+                            <p><strong>Name: </strong> <span id="name">{{$user->name}}</span>
                             <p><strong>Email: </strong> <span id="email">{{$user->email}}</span></p>
                             <p><strong>Phone: </strong> <span id="phone">{{$user->phone}}</span></p>
                             <p><strong>Skills: </strong> <span id="skills">{{$user->skills}}</span></p>
